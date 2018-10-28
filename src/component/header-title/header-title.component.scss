@@ -1,0 +1,17 @@
+@import '~@angular/material/theming';
+
+$primary: mat-palette($mat-indigo);
+
+:host {
+  background-color: mat-color($primary);
+  height: 80px;
+  display: block;
+  line-height: 80px;
+  padding: 0 28px;
+}
+.mf-title-text {
+  font-size: 20px;
+  color: #fff;
+  margin: 0;
+  font-weight: normal;
+}
