@@ -1,17 +1,18 @@
-<mat-toolbar color="primary" class="mat-elevation-z6">
-  <button mat-button>米饭博客</button>
-  <button mat-button>文章</button>
-  <button mat-button>标签</button>
+<mat-toolbar color="primary" class="mat-elevation-z6" role="heading">
+  <a mat-button>米饭博客</a>
+  <a mat-button>文章</a>
+  <a mat-button>标签</a>
+  <span class="fill-remaining-space"></span>
   <button mat-icon-button [matMenuTriggerFor]="menu" class="more">
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <a mat-menu-item>
       <span>文章</span>
-    </button>
-    <button mat-menu-item disabled>
+    </a>
+    <a mat-menu-item disabled>
       <span>标签</span>
-    </button>
+    </a>
   </mat-menu>
 </mat-toolbar>
 <router-outlet></router-outlet>

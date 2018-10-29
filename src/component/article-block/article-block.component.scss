@@ -21,6 +21,9 @@
       .header {
         padding-top: 30px;
         padding-bottom: 10px;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
       }
       .title {
         font-size: 26px;
@@ -31,9 +34,13 @@
       }
       .content {
         color: #333;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
     .header {
+      position: relative;
       padding: 5px 14px 0px;
     }
     .title {
@@ -58,5 +65,13 @@
       color: #999;
       line-height: 2.2em;
     }
+    .floating-close {
+      position: absolute;
+      right: 50px;
+      top: 10px;
+      z-index: 100;
+    }
   }
 }
+
+

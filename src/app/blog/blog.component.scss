@@ -5,9 +5,9 @@
     position: fixed;
     z-index: 1000;
     top: 0;
-    .more {
-      flex: auto;
-    }
+  }
+  .fill-remaining-space {
+    flex: 1 1  auto;
   }
 }
 

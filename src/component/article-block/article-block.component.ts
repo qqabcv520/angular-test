@@ -19,8 +19,9 @@ export class ArticleBlockComponent implements OnInit {
   ngOnInit() {
   }
 
-  expand () {
-    console.log(this.title);
+  expand ($event: Event) {
+    console.log('expand');
+    console.log(this.isExpand)
 
     // 禁用滚动
     // document.documentElement.style.height = '100%';
@@ -42,7 +43,8 @@ export class ArticleBlockComponent implements OnInit {
     }, 0);
   }
 
-  fold () {
+  fold ($event: Event) {
+    $event.stopPropagation();
     this.isExpand = false;
     window.clearTimeout(this.foldTimeoutHandle);
 
@@ -69,11 +71,9 @@ export class ArticleBlockComponent implements OnInit {
     }, 510);
   }
 
-  clickWrapper () {
+  clickWrapper ($event: Event) {
     if (!this.isExpand) {
-      this.expand();
-    } else {
-      this.fold();
+      this.expand($event);
     }
   }
 }
