@@ -4,6 +4,8 @@ import {
   MatToolbarModule,
   MatButtonModule,
   MatMenuModule,
+  MatGridListModule,
+  MatIconModule,
 } from '@angular/material';
 
 import {IndexComponent} from './index/index.component';
@@ -19,6 +21,8 @@ import {ComponentModule} from '../../component/component.module';
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
+    MatGridListModule,
+    MatIconModule,
     ComponentModule,
   ],
   declarations: [

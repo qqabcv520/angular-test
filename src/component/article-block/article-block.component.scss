@@ -1,47 +1,59 @@
 :host {
-  height: 120px;
-  margin-bottom: 10px;
+  display: block;
+  height: 100px;
+  margin-top: 10px;
   .main {
     transition: width 0.5s, height 0.5s, left 0.5s, top 0.5s, background-color 0.5s, padding 0.5s;
     transition-timing-function: cubic-bezier(.17,1,.5,1);
     position: relative;
     background-color: #eee;
     overflow: hidden;
-    height: 120px;
+    height: 100px;
     &.expand {
-      top: 0 !important;
+      @media (max-width: 599px)  {
+        top: 55px !important;
+      }
+      top: 63px !important;
       left: 0 !important;
       width: 100% !important;
       height: 100% !important;
       background-color: #fff;
+      .header {
+        padding-top: 30px;
+        padding-bottom: 10px;
+      }
       .title {
         font-size: 26px;
-        left: 50%;
-        transform: translateX(-50%);
         top: 20px;
+        height: 35px;
+        overflow-y: hidden;
+        max-width: 100%;
       }
       .content {
         color: #333;
-        padding-top: 90px;
       }
     }
     .header {
-      height: 50px;
+      padding: 5px 14px 0px;
     }
     .title {
       transition: font-size 0.5s, left 0.5s, transform 0.5s, top 0.5s;
       transition-timing-function: cubic-bezier(.17,1,.5,1);
       text-align: left;
       font-size: 16px;
-      position: absolute;
-      left: 15px;
-      top: 15px;
-      transform: translateX(0%);
+      font-weight: normal;
+      margin: 0;
+      height: 35px;
+      line-height: 35px;
+    }
+    .info {
+      margin-top: 20px;
+      color: #999;
     }
     .content {
       transition: line-height 0.5s, padding 0.5s, color 0.5s;
       transition-timing-function: cubic-bezier(.17,1,.5,1);
-      padding: 14px;
+      padding: 0 14px;
       font-size: 14px;
       color: #999;
       line-height: 2.2em;

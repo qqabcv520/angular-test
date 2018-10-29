@@ -1,11 +1,18 @@
 :host {
   display: block;
-  padding-top: 64px;
-  @media (max-width: 599px)  {
-    padding-top: 56px;
+  padding-top: 63px;
+  mat-toolbar {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    .more {
+      flex: auto;
+    }
   }
 }
-mat-toolbar {
-  position: fixed;
-  top: 0;
+
+@media (max-width: 599px)  {
+  :host {
+    padding-top: 55px;
+  }
 }

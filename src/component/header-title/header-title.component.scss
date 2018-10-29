@@ -12,6 +12,8 @@ $primary: mat-palette($mat-indigo);
 .mf-title-text {
   font-size: 20px;
   color: #fff;
-  margin: 0;
   font-weight: normal;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }

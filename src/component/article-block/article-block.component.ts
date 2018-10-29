@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import {Component, OnInit, ElementRef, Input} from '@angular/core';
 
 @Component({
   selector: 'mf-article-block',
@@ -7,10 +7,12 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 })
 export class ArticleBlockComponent implements OnInit {
 
-
   isExpand = false;
   expandTimeoutHandle = null;
   foldTimeoutHandle = null;
+
+  @Input() title: string;
+  @Input() content: string;
 
   constructor(private el: ElementRef) { }
 
@@ -18,16 +20,16 @@ export class ArticleBlockComponent implements OnInit {
   }
 
   expand () {
-    // 禁用滚动
-    document.documentElement.style.height = '100%';
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.height = '100%';
-    document.body.style.overflow = 'hidden';
+    console.log(this.title);
 
-    console.log(this.el.nativeElement.querySelector);
+    // 禁用滚动
+    // document.documentElement.style.height = '100%';
+    // document.documentElement.style.overflow = 'hidden';
+    // document.body.style.height = '100%';
+    // document.body.style.overflow = 'hidden';
+
     const domRect = this.el.nativeElement.getBoundingClientRect();
     const main = this.el.nativeElement.querySelector('.main');
-    console.log(main);
     main.style.position = 'fixed';
     main.style.top = domRect.top + 'px';
     main.style.left = domRect.left + 'px';
@@ -43,20 +45,27 @@ export class ArticleBlockComponent implements OnInit {
   fold () {
     this.isExpand = false;
     window.clearTimeout(this.foldTimeoutHandle);
+
+    const domRect = this.el.nativeElement.getBoundingClientRect();
+    const main = this.el.nativeElement.querySelector('.main');
+    main.style.top = domRect.top + 'px';
+    main.style.left = domRect.left + 'px';
+    main.style.width = domRect.width + 'px';
+    main.style.height = domRect.height + 'px';
+
     this.foldTimeoutHandle = window.setTimeout(() => {
-      const main = this.el.nativeElement.querySelector('.main');
       main.style.position = '';
       main.style.top = '';
       main.style.left = '';
       main.style.width = '';
-      main.style.height = '120px';
+      main.style.height = '100px';
       main.style.zIndex = '0';
 
       // 启用滚动
-      document.documentElement.style.height = '';
-      document.documentElement.style.overflow = '';
-      document.body.style.height = '';
-      document.body.style.overflow = '';
+      // document.documentElement.style.height = '';
+      // document.documentElement.style.overflow = '';
+      // document.body.style.height = '';
+      // document.body.style.overflow = '';
     }, 510);
   }
 

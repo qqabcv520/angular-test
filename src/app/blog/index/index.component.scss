@@ -1,0 +1,39 @@
+:host {
+  .content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .jumbotron-header {
+    background: no-repeat 50%;
+    background-size: cover;
+    height: 300px;
+    position: relative;
+    .jumbotron-title {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      margin: 0;
+      font-size: 63px;
+      font-weight: 500;
+    }
+  }
+  .jumbotron-header {
+    background-image: url(../../../assets/image/all.jpg);
+  }
+}
+
+
+@media (max-width: 599px)  {
+  :host {
+    .jumbotron-header {
+      .jumbotron-title {
+        font-size: 36px;
+      }
+    }
+  }
+}
+

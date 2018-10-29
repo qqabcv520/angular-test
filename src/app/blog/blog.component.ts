@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
+  mene = false;
+
+
   constructor() { }
 
   ngOnInit() {
