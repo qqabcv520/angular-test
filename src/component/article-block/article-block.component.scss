@@ -1,15 +1,16 @@
 :host {
   display: block;
   height: 100px;
-  margin-top: 10px;
+  margin-top: 8px;
   .main {
     transition: width 0.5s, height 0.5s, left 0.5s, top 0.5s, background-color 0.5s, padding 0.5s;
-    transition-timing-function: cubic-bezier(.17,1,.5,1);
+    transition-timing-function: cubic-bezier(0,.7,.3,1);
     position: relative;
     background-color: #eee;
     overflow: hidden;
     height: 100px;
-    &.expand {
+    cursor: pointer;
+    &.expanded {
       @media (max-width: 599px)  {
         top: 55px !important;
       }
@@ -18,12 +19,14 @@
       width: 100% !important;
       height: 100% !important;
       background-color: #fff;
+      overflow-y: auto;
       .header {
         padding-top: 30px;
         padding-bottom: 10px;
         max-width: 1000px;
         margin-left: auto;
         margin-right: auto;
+        height: 92px;
       }
       .title {
         font-size: 26px;
@@ -40,12 +43,16 @@
       }
     }
     .header {
+      transition: padding 0.5s, height 0.5s;
+      transition-timing-function: cubic-bezier(0,.7,.3,1);
       position: relative;
-      padding: 5px 14px 0px;
+      padding: 5px 14px 0;
+      height: 35px;
+      overflow: hidden;
     }
     .title {
       transition: font-size 0.5s, left 0.5s, transform 0.5s, top 0.5s;
-      transition-timing-function: cubic-bezier(.17,1,.5,1);
+      transition-timing-function: cubic-bezier(0,.7,.3,1);
       text-align: left;
       font-size: 16px;
       font-weight: normal;
@@ -59,7 +66,7 @@
     }
     .content {
       transition: line-height 0.5s, padding 0.5s, color 0.5s;
-      transition-timing-function: cubic-bezier(.17,1,.5,1);
+      transition-timing-function: cubic-bezier(0,.7,.3,1);
       padding: 0 14px;
       font-size: 14px;
       color: #999;
@@ -71,6 +78,11 @@
       top: 10px;
       z-index: 100;
     }
+  }
+  .animating {
+    position: fixed;
+    z-index: 100;
+    cursor: auto;
   }
 }
 

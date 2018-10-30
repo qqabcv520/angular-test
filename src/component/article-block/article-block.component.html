@@ -1,8 +1,8 @@
-<div class="main" (click)="clickWrapper($event)" [ngClass]="{expand: isExpand}">
+<div class="main" [ngStyle]="mainStyle" (click)="clickWrapper($event)" [ngClass]="{animating: isAnimating, expanded: isExpanded}">
   <div class="header">
     <h2 class="title">{{title}}</h2>
-    <p class="info" *ngIf="isExpand">发布时间：20018-10-29</p>
-    <button *ngIf="isExpand" (click)="fold($event)" mat-fab color="primary" class="floating-close">X</button>
+    <p class="info" *ngIf="isAnimating">发布时间：20018-10-29</p>
+    <button *ngIf="isAnimating" (click)="clickClose($event)" mat-fab color="primary" class="floating-close">X</button>
   </div>
   <div class="content">
     文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内

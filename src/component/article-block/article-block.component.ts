@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, Input} from '@angular/core';
+import {Component, OnInit, ElementRef, Input, HostBinding} from '@angular/core';
 
 @Component({
   selector: 'mf-article-block',
@@ -7,73 +7,67 @@ import {Component, OnInit, ElementRef, Input} from '@angular/core';
 })
 export class ArticleBlockComponent implements OnInit {
 
-  isExpand = false;
   expandTimeoutHandle = null;
   foldTimeoutHandle = null;
-
+  isAnimating = false;
+  isExpanded = false;
   @Input() title: string;
   @Input() content: string;
+
+  mainStyle = {
+    top: '',
+    left: '',
+    width: '',
+    height: '',
+  };
 
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
   }
 
-  expand ($event: Event) {
-    console.log('expand');
-    console.log(this.isExpand)
-
-    // 禁用滚动
-    // document.documentElement.style.height = '100%';
-    // document.documentElement.style.overflow = 'hidden';
-    // document.body.style.height = '100%';
-    // document.body.style.overflow = 'hidden';
-
+  expand () {
+    this.isAnimating = true;
     const domRect = this.el.nativeElement.getBoundingClientRect();
-    const main = this.el.nativeElement.querySelector('.main');
-    main.style.position = 'fixed';
-    main.style.top = domRect.top + 'px';
-    main.style.left = domRect.left + 'px';
-    main.style.width = domRect.width + 'px';
-    main.style.height = domRect.height + 'px';
-    main.style.zIndex = '100';
-    window.clearTimeout(this.foldTimeoutHandle);
+    this.mainStyle.top = domRect.top + 'px';
+    this.mainStyle.left = domRect.left + 'px';
+    this.mainStyle.width = domRect.width + 'px';
+    this.mainStyle.height = domRect.height + 'px';
+    window.clearTimeout(this.expandTimeoutHandle);
     this.expandTimeoutHandle = window.setTimeout(() => {
-      this.isExpand = true;
+      this.isExpanded = true;
     }, 0);
   }
 
-  fold ($event: Event) {
-    $event.stopPropagation();
-    this.isExpand = false;
-    window.clearTimeout(this.foldTimeoutHandle);
+  fold () {
+    this.isExpanded = false;
 
     const domRect = this.el.nativeElement.getBoundingClientRect();
-    const main = this.el.nativeElement.querySelector('.main');
-    main.style.top = domRect.top + 'px';
-    main.style.left = domRect.left + 'px';
-    main.style.width = domRect.width + 'px';
-    main.style.height = domRect.height + 'px';
+    this.mainStyle.top = domRect.top + 'px';
+    this.mainStyle.left = domRect.left + 'px';
+    this.mainStyle.width = domRect.width + 'px';
+    this.mainStyle.height = domRect.height + 'px';
 
+    window.clearTimeout(this.foldTimeoutHandle);
     this.foldTimeoutHandle = window.setTimeout(() => {
-      main.style.position = '';
-      main.style.top = '';
-      main.style.left = '';
-      main.style.width = '';
-      main.style.height = '100px';
-      main.style.zIndex = '0';
-
-      // 启用滚动
-      // document.documentElement.style.height = '';
-      // document.documentElement.style.overflow = '';
-      // document.body.style.height = '';
-      // document.body.style.overflow = '';
-    }, 510);
+      this.mainStyle.top = '';
+      this.mainStyle.left = '';
+      this.mainStyle.width = '';
+      this.mainStyle.height = '100px';
+      this.isAnimating = false;
+    }, 505);
   }
 
   clickWrapper ($event: Event) {
-    if (!this.isExpand) {
-      this.expand($event);
+    if (!this.isAnimating) {
+      this.expand();
+    }
+    $event.stopPropagation();
+  }
+  clickClose ($event: Event) {
+    if (this.isAnimating) {
+      this.fold();
+      $event.stopPropagation();
     }
   }
 }
