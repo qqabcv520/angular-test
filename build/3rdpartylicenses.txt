@@ -303,6 +303,9 @@ MIT
 @angular/router
 MIT
 
+@angular/animations
+MIT
+
 @angular/cdk
 MIT
 The MIT License
@@ -353,13 +356,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-@angular/animations
-MIT
-
-@angular/material/button
-
-@angular/material/icon
-
 @angular/material/sidenav
 
 @angular/forms
@@ -371,7 +367,11 @@ MIT
 
 @angular/material/toolbar
 
-@angular/material/menu
+@angular/material/button
+
+@angular/material/icon
+
+@angular/material/form-field
 
 zone.js
 MIT

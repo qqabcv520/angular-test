@@ -1,21 +1,3 @@
-<!--<mat-toolbar color="primary" class="mat-elevation-z6" role="heading">-->
-  <!--<a mat-button>米饭博客</a>-->
-  <!--<a mat-button [routerLink]="[ '/blog' ]" >文章</a>-->
-  <!--<a mat-button [routerLink]="[ '/blog/tag' ]" >标签</a>-->
-  <!--<span class="fill-remaining-space"></span>-->
-  <!--<button mat-icon-button [matMenuTriggerFor]="menu" class="more">-->
-    <!--<mat-icon>more_vert</mat-icon>-->
-  <!--</button>-->
-  <!--<mat-menu #menu="matMenu">-->
-    <!--<a mat-menu-item>-->
-      <!--<span>文章</span>-->
-    <!--</a>-->
-    <!--<a mat-menu-item disabled>-->
-      <!--<span>标签</span>-->
-    <!--</a>-->
-  <!--</mat-menu>-->
-<!--</mat-toolbar>-->
-<!--<router-outlet></router-outlet>-->
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
@@ -26,44 +8,25 @@
       <a mat-list-item [routerLink]="[ '/blog/tag' ]" >标签</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary" class="mat-elevation-z6" role="heading">
+  <mat-sidenav-content >
+    <mat-toolbar color="primary" class="mat-elevation-z6 toolbar" role="heading">
       <button
           type="button"
           aria-label="Toggle sidenav"
           mat-icon-button
           (click)="drawer.toggle()"
-          *ngIf="isHandset$ | async">
+          >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <a mat-button>米饭博客</a>
-      <ng-container *ngIf="!(isHandset$ | async)" >
-        <a mat-button [routerLink]="[ '/blog' ]" >文章</a>
-        <a mat-button [routerLink]="[ '/blog/tag' ]" >标签</a>
-      </ng-container>
       <span class="fill-remaining-space"></span>
-      <button mat-icon-button [matMenuTriggerFor]="menu" class="more">
-        <mat-icon></mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <a mat-menu-item>
-          <span>文章</span>
-        </a>
-        <a mat-menu-item disabled>
-          <span>标签</span>
-        </a>
-      </mat-menu>
+      <app-input placeholder="搜索" [(value)]="searchValue" icon="search" class="search-input"></app-input>
     </mat-toolbar>
-    <!--<mat-toolbar color="primary">-->
-    <!--<button-->
-    <!--type="button"-->
-    <!--aria-label="Toggle sidenav"-->
-    <!--mat-icon-button-->
-    <!--(click)="drawer.toggle()">-->
-    <!--<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>-->
-    <!--</button>-->
-    <!--<span>blog-angular</span>-->
-    <!--</mat-toolbar>-->
+    <div class="banner" [style.height.px]="bannerHeight">
+      <div class="banner-display" [style.height.px]="displayHeight" [style.background-image]="'url(../../assets/image/all.jpg)'">
+        <a class="title" [routerLink]="['/']" >米饭博客</a>
+      </div>
+    </div>
+
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

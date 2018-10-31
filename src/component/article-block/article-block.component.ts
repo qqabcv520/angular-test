@@ -1,7 +1,7 @@
 import {Component, OnInit, ElementRef, Input, HostBinding} from '@angular/core';
 
 @Component({
-  selector: 'mf-article-block',
+  selector: 'app-article-block',
   templateUrl: './article-block.component.html',
   styleUrls: ['./article-block.component.scss']
 })

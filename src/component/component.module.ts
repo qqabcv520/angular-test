@@ -1,18 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderTitleComponent } from './header-title/header-title.component';
 import { ArticleBlockComponent } from './article-block/article-block.component';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatIconModule} from '@angular/material';
+import { InputComponent } from './input/input.component';
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MatButtonModule,
+    MatIconModule,
   ],
   exports: [
-    HeaderTitleComponent,
     ArticleBlockComponent,
+    InputComponent,
+    BannerComponent,
   ],
-  declarations: [HeaderTitleComponent, ArticleBlockComponent],
+  declarations: [
+    ArticleBlockComponent,
+    InputComponent,
+    BannerComponent,
+  ],
 })
 export class ComponentModule { }

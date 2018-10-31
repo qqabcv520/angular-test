@@ -6,7 +6,7 @@ import {
   MatMenuModule,
   MatGridListModule,
   MatIconModule,
-  MatSidenavModule, MatListModule,
+  MatSidenavModule, MatListModule, MatFormFieldModule, MatInputModule,
 } from '@angular/material';
 
 import {IndexComponent} from './index/index.component';
@@ -26,6 +26,8 @@ import {ComponentModule} from '../../component/component.module';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
     ComponentModule,
   ],
   declarations: [

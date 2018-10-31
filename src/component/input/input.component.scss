@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+@import '~src/theme';
+
+
+:host {
+  display: flex;
+  background-color: mat-color($candy-app-primary, 50);
+  align-items: center;
+  input {
+    border: none;
+    height: 100%;
+    flex: 1;
+    background-color: transparent;
+  }
+  mat-icon {
+    color: #666;
+  }
+}
+
