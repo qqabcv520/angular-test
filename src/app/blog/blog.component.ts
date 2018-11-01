@@ -2,7 +2,6 @@ import {Component, ElementRef, HostListener, Input, OnInit} from '@angular/core'
 import {Observable} from 'rxjs';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
-import {ScrollDispatcher} from '@angular/cdk/overlay';
 
 
 
@@ -29,8 +28,9 @@ export class BlogComponent implements OnInit {
       opacity: 0,
     }
   };
-
   toolbarTransparent: boolean;
+
+  bannerImg = `url(/assets/image/all.jpg)`;
 
 
   // handle window scroll
@@ -44,6 +44,7 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.bannerImg);
     this.displayHeight = this.bannerHeight - document.documentElement.scrollTop;
 
     this.isHandset$.subscribe((res) => {
