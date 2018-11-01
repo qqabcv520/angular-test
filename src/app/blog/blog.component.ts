@@ -27,9 +27,7 @@ export class BlogComponent implements OnInit {
     backgroundOpacity: {
       opacity: 0,
     },
-    imgClass: {
-      'all-img': true
-    }
+    imgClass: 'all-img'
   };
   toolbarTransparent: boolean;
 
