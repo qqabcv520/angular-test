@@ -23,7 +23,7 @@
       <app-input placeholder="搜索" [(value)]="searchValue" icon="search" class="search-input"></app-input>
     </mat-toolbar>
     <div class="banner" [style.height.px]="bannerHeight">
-      <div class="banner-display" [style.height.px]="displayHeight" style="background-image: url('/assets/image/all.jpg')">
+      <div class="banner-display" [style.height.px]="displayHeight" [ngClass]="bannerStyles.imgClass">
         <div class="background-opacity" [ngStyle]="bannerStyles.backgroundOpacity"></div>
         <a class="title" [routerLink]="['/']" [ngStyle]="bannerStyles.title" >米饭博客</a>
       </div>

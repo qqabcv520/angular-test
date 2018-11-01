@@ -26,11 +26,13 @@ export class BlogComponent implements OnInit {
     },
     backgroundOpacity: {
       opacity: 0,
+    },
+    imgClass: {
+      'all-img': true
     }
   };
   toolbarTransparent: boolean;
 
-  bannerImg = `url(/assets/image/all.jpg)`;
 
 
   // handle window scroll
@@ -44,7 +46,7 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.bannerImg);
+    console.log(this.bannerStyles.imgClass);
     this.displayHeight = this.bannerHeight - document.documentElement.scrollTop;
 
     this.isHandset$.subscribe((res) => {
